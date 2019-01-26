@@ -30,8 +30,8 @@ const resolvers = {
         .then(res => {
           return res.map(item => ({
             name: item.name,
-            ingredients: JSON.parse(item.ingredients),
-            directions: JSON.parse(item.directions)
+            ingredients: item.ingredients,
+            directions: item.directions
           }))
         })
     }
