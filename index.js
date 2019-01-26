@@ -15,7 +15,7 @@ const typeDefs = gql`
   }
   
   type Query {
-    allRecipes: [Recipe]
+    allRecipes(limit: Int, skip: Int): [Recipe]
     recipe(slug: String!): Recipe
   }
   
