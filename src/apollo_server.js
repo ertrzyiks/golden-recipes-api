@@ -39,6 +39,12 @@ module.exports = function createApolloServer(recipeRepository) {
           name: args.name,
           ingredients: args.ingredients,
           directions: args.directions
+        }).catch(e => {
+          if (e.message.includes('violates unique constraint')) {
+            throw new Error('Recipe with such name already exists.')
+          }
+
+          throw e
         })
       }
     }
